@@ -38,7 +38,6 @@ class Page:
                 entrada: usuario: usuario valido que tenha acesso a interface web do ponto.
                          senha: senha do usuario.
                          url: geralmente IP do relogio de ponto.
-
         """
 
         # Se o arquivo existir ele deleta
