@@ -23,7 +23,24 @@ driver = webdriver.Firefox(firefox_profile=fp, options=options, firefox_binary=b
 
 class Page:
 
+    """Esta classe cria uma seção no Firefox para fazer a busca e download do arquivo AFD do relogio de ponoto ID CLASS
+    Utilizando a bilioteca Selenium para simular uma seção real.
+    """
+
+    __author__ = 'Giovane Pianco'
+    __version__ = "1.0"
+    __email__ = 'gopianco@hotmail.com'
+    __maintainer__ = 'Giovane Pianco'
+
     def login(self, usuario, senha, url):
+
+        """ Faz login na pagina inicial do ponto
+                entrada: usuario: usuario valido que tenha acesso a interface web do ponto.
+                         senha: senha do usuario.
+                         url: geralmente IP do relogio de ponto.
+
+        """
+
         # Se o arquivo existir ele deleta
         if os.path.exists(path + '\AFD00014003750030058.txt'):
             os.remove(path + '\AFD00014003750030058.txt')
@@ -44,12 +61,19 @@ class Page:
 
     def baixar(self, url):
 
+        """Após login esta classe redireciona  o navegador para a modal que faz o download completo do AFD.
+
+            entrada: url: url da modal que faz o download completo do AFD.
+        """
+
         driver.get(url + '#page=users&modal=afd_completo')  # redireciona o link da pagina
         driver.switch_to.active_element #alterna para o elemento ativo na tela - modal
         time.sleep(2)
         driver.find_element_by_xpath("//button[contains(.,'Continuar')]").click()
 
     def fechar_navegador(self):
+
+        """Verifica se o donwload foi concluido e encerra a seção do navegador."""
 
         while not os.path.exists(path + r'\AFD00014003750030058.txt'):
             time.sleep(1)
