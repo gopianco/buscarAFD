@@ -24,7 +24,7 @@ driver = webdriver.Firefox(firefox_profile=fp, options=options, firefox_binary=b
 class Page:
 
     """Esta classe cria uma seção no Firefox para fazer a busca e download do arquivo AFD do relogio de ponoto ID CLASS
-    Utilizando a bilioteca Selenium para simular uma seção real.
+    Utilizando a bilioteca Selenium para simular o acesso real ao navegador e à página de download.
     """
 
     __author__ = 'Giovane Pianco'
