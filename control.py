@@ -2,9 +2,7 @@ from model import Page
 from os import getcwd
 
 
-
 def set_firefox(self):
-
     perfil = r'C:\Users\User\AppData\Roaming\Mozilla' r'\Firefox\Profiles\l4yjb85n.relogio'
     exe = r'C:\Program Files\Mozilla Firefox\firefox.exe'
     driver = r'C:\\geckodriver.exe'
@@ -16,7 +14,6 @@ def set_firefox(self):
 
 
 def log_idclass(self, sec):
-
     usuario = 'admin'
     senha = 'admin'
     url = 'https://192.168.0.179'
@@ -28,8 +25,6 @@ def log_idclass(self, sec):
 
 
 def verifica_arquivo(self):
-
-
     local_donwload = getcwd()
     nome_arquivo = r'\AFD00014003750030058.txt'
 
@@ -38,14 +33,13 @@ def verifica_arquivo(self):
 
 
 def baixar(self, sec):
-
     url = 'https://192.168.0.179'
 
-    if self.baixar(self,url, sec):
+    if self.baixar(self, url, sec):
         return True
 
-def close(self, sec):
 
+def close(self, sec):
     local_donwload = getcwd()
     nome_arquivo = r'\AFD00014003750030058.txt'
 
@@ -79,12 +73,5 @@ def main():
         print('Problema de download')
 
 
-
-
-
-
 if __name__ == '__main__':
     main()
-
-
-

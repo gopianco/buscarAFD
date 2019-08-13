@@ -102,8 +102,14 @@ class Page:
         :return: True se o donwload for concluido e fechou o navegador
         """
 
+        count = 0
         while not os.path.exists(path + nome_arquivo):
             time.sleep(1)
+            count += 1
+            if count == 120:
+                return False
+                print('O tempo expirou')
+                driver.quit()
 
 
         if os.path.isfile(path + nome_arquivo):
