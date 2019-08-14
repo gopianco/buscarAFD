@@ -1,4 +1,4 @@
-from teste import Secao
+from model import Secao
 from os import getcwd
 
 def log_idclass():
