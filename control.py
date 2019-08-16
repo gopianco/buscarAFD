@@ -16,7 +16,8 @@ def log_idclass():
 
     idclass.baixar(idclass, drive)
 
-    idclass.fechar_navegador(idclass, drive)
+    if idclass.fechar_navegador(idclass, drive) == False:
+        log_idclass()
 
 
 def main():

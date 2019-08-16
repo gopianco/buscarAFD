@@ -7,7 +7,8 @@ from selenium.webdriver.firefox.options import Options
 
 
 class Secao:
-    """Esta classe cria uma seção no Firefox para fazer a busca e download do arquivo AFD do relogio de ponoto ID CLASS
+    """
+    Esta classe cria uma seção no Firefox para fazer a busca e download do arquivo AFD do relogio de ponoto ID CLASS
     Utilizando a bilioteca Selenium para simular o acesso real ao navegador e à página de download.
     """
 
@@ -19,7 +20,7 @@ class Secao:
     def __init__(self, path, url, usuario, senha, nome_arquivo):
 
         """
-        Configurações padrao para o fireforx
+        Construtor padrão
         """
         self.path = path
 
@@ -30,6 +31,10 @@ class Secao:
         self.path = path
 
     def config_driver(self):
+        """
+        Configurações padão do fireFox
+        :return: objeto webDriver
+        """
 
         fp = webdriver.FirefoxProfile(r'C:\Users\User\AppData\Roaming\Mozilla'
                                       r'\Firefox\Profiles\l4yjb85n.relogio')  # Perfil de usuario do FireFox
@@ -40,7 +45,7 @@ class Secao:
 
         binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
         options = Options()
-        options.headless = True  # Ativa navegador 'invisivel'
+        options.headless = False  # Ativa navegador 'invisivel'
         config = webdriver.Firefox(firefox_profile=fp, options=options, firefox_binary=binary,
                                         executable_path=r'C:\\geckodriver.exe')
 
@@ -77,9 +82,6 @@ class Secao:
         """
         Faz o redirecionamento para a url da modal do download completo do AFD
 
-        :param url: geralmente IP do relogio de ponto.
-        :param driver: configurações do geckodriver
-
         """
 
         driver.get(self.url + '#page=users&modal=afd_completo')  # redireciona o link da pagina
@@ -98,9 +100,9 @@ class Secao:
             time.sleep(1)
             count += 1
             if count == 120:
-                return False
-                print('O tempo expirou')
                 drive.quit()
+                return False
+
 
         if os.path.isfile(self.path + self.nome_arquivo):
             drive.quit()
